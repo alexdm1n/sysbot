@@ -5,9 +5,9 @@ using SysBot.Models;
 
 namespace SysBot.Services;
 
-internal class ConfigInitializationService
+internal class ConfigInitializationService : IConfigInitializationService
 {
-    internal AppConfiguration GetConfiguration()
+    public AppConfiguration GetConfiguration()
     {
         var deserializedConfiguration = File.ReadAllText(ConfigurationConstants.ConfigurationFileName);
         var configuration = JsonSerializer.Deserialize<AppConfiguration>(deserializedConfiguration);

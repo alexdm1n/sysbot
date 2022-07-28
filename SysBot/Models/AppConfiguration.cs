@@ -2,7 +2,7 @@
 
 internal class AppConfiguration
 {
-    public string BotToken { get; }
+    public string BotToken { get; set; }
     
-    public string CommandPrefix { get; }
+    public string CommandPrefix { get; set; }
 }
