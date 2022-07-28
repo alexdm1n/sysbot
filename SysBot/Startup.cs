@@ -5,7 +5,7 @@ namespace SysBot
 {
     class Startup
     {
-        private static DiscordSocketClient _client;
+        private DiscordSocketClient _client;
         private readonly IConfigInitializationService _configInitializationService;
 
         public Startup(IConfigInitializationService configInitializationService)
@@ -19,7 +19,6 @@ namespace SysBot
         {
             _client = new DiscordSocketClient();
             var configuration = _configInitializationService.GetConfiguration();
-            Console.WriteLine(configuration);
             Console.ReadKey();
         }
     }
