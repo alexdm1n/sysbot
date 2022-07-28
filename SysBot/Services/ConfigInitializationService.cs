@@ -9,14 +9,17 @@ internal class ConfigInitializationService : IConfigInitializationService
 {
     public AppConfiguration GetConfiguration()
     {
-        var deserializedConfiguration = File.ReadAllText(ConfigurationConstants.ConfigurationFileName);
+        var deserializedConfiguration = File
+            .ReadAllText(Path.GetFullPath(@"..\..\..\") + ConfigurationConstants.ConfigurationFileName);
         var configuration = JsonSerializer.Deserialize<AppConfiguration>(deserializedConfiguration);
         if (configuration != null)
         {
+            Console.WriteLine(
+                $"Successfully received your app configuration: \nToken: {configuration.BotToken}\nPrefix: {configuration.CommandPrefix}");
             return configuration;
         }
 
         throw new EmptyConfigurationException(
-            $"Please provide your bot details in the file {ConfigurationConstants.ConfigurationFileName}");
+            $"Please provide your bot configuration in the file {ConfigurationConstants.ConfigurationFileName}");
     }
 }
