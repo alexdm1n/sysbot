@@ -20,6 +20,6 @@ internal class ConfigInitializationService : IConfigInitializationService
         }
 
         throw new EmptyConfigurationException(
-            $"Please provide your bot bot configuration in the file {ConfigurationConstants.ConfigurationFileName}");
+            $"Please provide your bot configuration in the file {ConfigurationConstants.ConfigurationFileName}");
     }
 }
