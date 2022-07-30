@@ -1,4 +1,4 @@
 ﻿{
-   "BotToken": "Your personal bot tocken",
-   "CommandPrefix": "Your command prefix"
+   "BotToken": "OTM5NDMwMDI5NTgwOTcyMDUz.GUSDSE.nQ88ew4bKDk9agA7bZjVs6ySLDKaDx-JoFYm4U",
+   "CommandPrefix": "SYS"
 }

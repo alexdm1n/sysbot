@@ -22,4 +22,13 @@ internal class ConfigInitializationService : IConfigInitializationService
         throw new EmptyConfigurationException(
             $"Please provide your bot configuration in the file {ConfigurationConstants.ConfigurationFileName}");
     }
+
+    public string GetCommandsPrefix()
+    {
+        var deserializedConfiguration = File
+            .ReadAllText(Path.GetFullPath(@"..\..\..\") + ConfigurationConstants.ConfigurationFileName);
+        var configuration = JsonSerializer.Deserialize<AppConfiguration>(deserializedConfiguration);
+        return configuration.CommandPrefix;
+    }
+    
 }
