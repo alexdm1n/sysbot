@@ -25,7 +25,7 @@ namespace SysBot
         static void Main() => new Startup(
             configInitializationService: new ConfigInitializationService(),
             loggerService: new LoggerService(),
-            commandsHandlerService: new CommandsHandlerService(new ConfigInitializationService())
+            commandsHandlerService: new CommandsHandlerService(new ConfigInitializationService(), new RngService())
             ).MainAsync().GetAwaiter().GetResult();
 
         private async Task MainAsync()
