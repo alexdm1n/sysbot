@@ -1,6 +1,6 @@
 ﻿namespace SysBot.Constants;
 
-internal class ConfigurationConstants
+internal static class ConfigurationConstants
 {
-    public static string ConfigurationFileName = "AppConfiguration.txt";
+    public const string ConfigurationFileName = "AppConfiguration.txt";
 }
