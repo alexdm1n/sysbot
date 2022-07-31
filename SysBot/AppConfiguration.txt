@@ -1,4 +1,4 @@
 ﻿{
-   "BotToken": "Your personal bot tocken",
-   "CommandPrefix": "Your command prefix"
+   "BotToken": "",
+   "CommandPrefix": ""
 }

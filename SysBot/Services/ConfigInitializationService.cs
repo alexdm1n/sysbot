@@ -12,7 +12,7 @@ internal class ConfigInitializationService : IConfigInitializationService
         var deserializedConfiguration = File
             .ReadAllText(Path.GetFullPath(@"..\..\..\") + ConfigurationConstants.ConfigurationFileName);
         var configuration = JsonSerializer.Deserialize<AppConfiguration>(deserializedConfiguration);
-        if (configuration != null)
+        if (!string.IsNullOrEmpty(configuration.BotToken))
         {
             Console.WriteLine(
                 $"Successfully received your app configuration: \nToken: {configuration.BotToken}\nPrefix: {configuration.CommandPrefix}");
@@ -22,4 +22,13 @@ internal class ConfigInitializationService : IConfigInitializationService
         throw new EmptyConfigurationException(
             $"Please provide your bot configuration in the file {ConfigurationConstants.ConfigurationFileName}");
     }
+
+    public string GetCommandsPrefix()
+    {
+        var deserializedConfiguration = File
+            .ReadAllText(Path.GetFullPath(@"..\..\..\") + ConfigurationConstants.ConfigurationFileName);
+        var configuration = JsonSerializer.Deserialize<AppConfiguration>(deserializedConfiguration);
+        return configuration.CommandPrefix;
+    }
+    
 }
