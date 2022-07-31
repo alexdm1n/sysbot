@@ -7,7 +7,7 @@ namespace SysBot.Services.Handlers;
 
 internal class CommandsHandlerService : ICommandsHandlerService
 {
-    private const int RandomLimiter = 10;
+    private const int RandomLimiter = 11;
     private readonly IConfigInitializationService _configInitializationService;
     private readonly IRngService _rngService;
 
@@ -49,6 +49,11 @@ internal class CommandsHandlerService : ICommandsHandlerService
         {
             SendImagesMessage(BotCommands.Korol, message);
         }
+
+        if (message.Content == prefix + BotCommands.Sys)
+        {
+            SendImagesMessage(BotCommands.Sys, message);
+        }
     }
     private void SendImagesMessage(string imageName, SocketMessage message)
     { 
@@ -57,6 +62,6 @@ internal class CommandsHandlerService : ICommandsHandlerService
             imageName + 
             _rngService.GetRandomNumber(RandomLimiter) + 
             ".jpg");
-        Console.WriteLine($"Image for {BotCommands.Hohma} was sent successfully");
+        Console.WriteLine($"{DateTime.Now.TimeOfDay} Image for {imageName} was sent successfully");
     }
 }
